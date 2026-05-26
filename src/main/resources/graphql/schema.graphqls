@@ -1,0 +1,39 @@
+type Query {
+    consultas: [Consulta]
+
+    consultaPorId(id: ID!): Consulta
+}
+
+type Mutation {
+
+    criarConsulta(
+        dataHora: String!,
+        especialidade: String!,
+        observacoes: String!,
+        status: String!,
+        medicoId: ID!,
+        enfermeiroId: ID!,
+        pacienteId: ID!
+    ): Consulta
+
+    editarConsulta(
+        id: ID!,
+        dataHora: String!,
+        especialidade: String!,
+        observacoes: String!,
+        status: String!,
+        medicoId: ID!,
+        enfermeiroId: ID!,
+        pacienteId: ID!
+    ): Consulta
+
+    excluirConsulta(id: ID!): String
+}
+
+type Consulta {
+    id: ID
+    dataHora: String
+    especialidade: String
+    observacoes: String
+    status: String
+}
